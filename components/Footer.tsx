@@ -73,10 +73,10 @@ export default function Footer() {
             <div className="space-y-3 text-sm">
               <p>
                 <a
-                  href="mailto:info@nobearbox.com"
+                  href="mailto:nobearbox@gmail.com"
                   className="text-white/50 hover:text-white transition-colors"
                 >
-                  info@nobearbox.com
+                  nobearbox@gmail.com
                 </a>
               </p>
               <div>
