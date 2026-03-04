@@ -51,7 +51,7 @@ export default function Home() {
         {/* BearXing collage banner */}
         <div className="relative w-full h-[280px] md:h-[360px] overflow-hidden">
           <Image
-            src="/BearXingCollage.png"
+            src="/BearXingCollage.webp"
             alt="Bear crossing signs and bear country imagery collage"
             fill
             className="object-cover object-center"

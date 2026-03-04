@@ -22,7 +22,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/LakeCabinHero.png"
+          src="/LakeCabinHero.webp"
           alt="Lakeside cabin in bear country surrounded by forest"
           fill
           className="object-cover"

@@ -89,7 +89,7 @@ export default function Testimonials() {
       {/* Background image -- anchor to top where the cabin + treeline are */}
       <div className="absolute inset-0">
         <Image
-          src="/LakeCabinTestimonial.png"
+          src="/LakeCabinTestimonial.webp"
           alt=""
           fill
           className="object-cover object-top"
