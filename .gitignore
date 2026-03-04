@@ -34,3 +34,5 @@ next-env.d.ts
 
 # staging/working files
 NBB_loading_dock/
+public/nobearbox-pic.zip
+.claude/

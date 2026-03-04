@@ -32,10 +32,10 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <Image
-                src="/logo.png"
+                src="/footer-logo.png"
                 alt="No Bear Box"
-                width={32}
-                height={32}
+                width={200}
+                height={200}
                 className="text-white"
               />
               <span className="text-white font-bold text-lg">No Bear Box</span>

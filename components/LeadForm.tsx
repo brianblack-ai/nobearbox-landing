@@ -32,6 +32,8 @@ export default function LeadForm({ defaultType = 'quote', onClose }: LeadFormPro
 
   const [photoFile, setPhotoFile] = useState<File | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const handleInputChange = (
@@ -67,23 +69,36 @@ export default function LeadForm({ defaultType = 'quote', onClose }: LeadFormPro
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     if (!validateForm()) {
       return;
     }
 
-    const payload = {
-      ...formData,
-      requestType: defaultType,
-      photoFileName: photoFile?.name || null,
-      timestamp: new Date().toISOString(),
-    };
+    setIsSubmitting(true);
+    setSubmitError('');
 
-    console.log('Lead form submission:', payload);
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          requestType: defaultType,
+        }),
+      });
 
-    setIsSubmitted(true);
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
+
+      setIsSubmitted(true);
+    } catch {
+      setSubmitError('Something went wrong. Please try again or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -296,6 +311,13 @@ export default function LeadForm({ defaultType = 'quote', onClose }: LeadFormPro
         />
       </div>
 
+      {/* Error Message */}
+      {submitError && (
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+          {submitError}
+        </div>
+      )}
+
       {/* Submit Button */}
       <div className="flex items-center justify-end space-x-4">
         {onClose && (
@@ -309,9 +331,10 @@ export default function LeadForm({ defaultType = 'quote', onClose }: LeadFormPro
         )}
         <button
           type="submit"
-          className="px-8 py-3 bg-brand-red text-white font-bold rounded hover:bg-red-700 transition-colors"
+          disabled={isSubmitting}
+          className="px-8 py-3 bg-brand-red text-white font-bold rounded hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Submit {defaultType === 'bulk' ? 'Bulk Pricing Request' : 'Quote Request'}
+          {isSubmitting ? 'Submitting...' : `Submit ${defaultType === 'bulk' ? 'Bulk Pricing Request' : 'Quote Request'}`}
         </button>
       </div>
     </form>

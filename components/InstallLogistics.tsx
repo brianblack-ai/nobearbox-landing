@@ -1,15 +1,15 @@
 const options = [
   {
-    title: 'DIY-friendly setup',
-    description: 'Designed to be straightforward with included instructions and hardware',
-  },
-  {
     title: 'Pro installation',
-    description: 'Available in select regions for turnkey setup',
+    description: 'We handle placement and anchoring so your property is secured without lifting a finger.',
   },
   {
-    title: 'Rollout support for multi-property sites',
-    description: 'Coordinated installation across your entire portfolio',
+    title: 'Rollout support',
+    description: 'Managing multiple properties? We coordinate delivery and placement across your portfolio.',
+  },
+  {
+    title: 'Pickup and self-install',
+    description: 'For those with the equipment and crew, units are available for pickup. Fully built. No assembly.',
   },
 ];
 
@@ -19,7 +19,7 @@ export default function InstallLogistics() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Install options that match reality.
+            Fully built. Ready to place.
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">

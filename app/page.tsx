@@ -10,6 +10,7 @@ import AudienceSegments from '@/components/AudienceSegments';
 import ProductDetails from '@/components/ProductDetails';
 import InstallLogistics from '@/components/InstallLogistics';
 import ProofGallery from '@/components/ProofGallery';
+import BearBoxBenefits from '@/components/BearBoxBenefits';
 import FAQ from '@/components/FAQ';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
@@ -49,6 +50,7 @@ export default function Home() {
         <ProductDetails />
         <InstallLogistics />
         <ProofGallery />
+        <BearBoxBenefits />
         <FAQ />
         <FinalCTA />
       </main>

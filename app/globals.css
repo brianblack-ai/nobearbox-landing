@@ -17,3 +17,123 @@
     text-wrap: balance;
   }
 }
+
+/* Subtle animations for instruction-manual style illustrations */
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes arrow-down {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes latch-click {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+  100% {
+    stroke-dasharray: 100 100;
+  }
+}
+
+@keyframes latch-slide {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes module-slide {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(-5px);
+    opacity: 1;
+  }
+}
+
+@keyframes arrow-connect {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes dimension-pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 3s ease-in-out infinite;
+}
+
+.animate-arrow-down {
+  animation: arrow-down 2s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+.animate-latch-click {
+  animation: latch-click 2.5s ease-in-out infinite;
+}
+
+.animate-checkmark {
+  animation: checkmark 2s ease-in-out infinite;
+}
+
+.animate-latch-slide {
+  animation: latch-slide 2.5s ease-in-out infinite;
+}
+
+.animate-module-slide {
+  animation: module-slide 3s ease-in-out infinite;
+}
+
+.animate-arrow-connect {
+  animation: arrow-connect 2s ease-in-out infinite;
+}
+
+.animate-dimension-pulse {
+  animation: dimension-pulse 2s ease-in-out infinite;
+}

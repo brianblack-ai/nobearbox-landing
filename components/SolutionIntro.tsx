@@ -23,12 +23,12 @@ export default function SolutionIntro() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            A real fix, not another hack.
+            Set it. Latch it. Move on.
           </h2>
           <p className="text-lg text-white/80">
-            No Bear Box manufactures purpose-built modular bear boxes that house your trash cans
-            outdoors and lock down access. Designed for mountain properties where bears
-            and houses overlap.
+            Units arrive fully built. No handyman required. No custom wood build workaround.
+            The carabiner latch is human-friendly but bear-resistant. Permanent steel protection
+            for mountain properties where bears and trash collide.
           </p>
         </div>
 

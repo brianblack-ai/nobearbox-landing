@@ -6,7 +6,7 @@ const segments = [
     benefits: [
       'Reduce maintenance call volume',
       'Avoid fines and compliance issues',
-      'Standardize across multiple properties with scalable modular units',
+      'Same setup across all your properties',
     ],
   },
   {

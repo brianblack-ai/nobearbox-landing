@@ -29,11 +29,11 @@ export default function Header({ onGetQuote, onRequestBulkPricing }: HeaderProps
           {/* Logo and Brand */}
           <div className="flex items-center space-x-3">
             <Image
-              src="/logo.png"
+              src="/header-logo.png"
               alt="No Bear Box"
-              width={40}
-              height={40}
-              className="text-white"
+              width={200}
+              height={200}
+              className="h-10 w-auto"
             />
             <span className="text-white font-bold text-xl tracking-tight">
               No Bear Box
