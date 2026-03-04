@@ -9,120 +9,88 @@ export default function Footer() {
       const headerOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const navLinks = [
+    { label: 'Home', action: scrollToTop },
+    { label: 'Product', action: () => scrollToSection('why') },
+    { label: 'Models', action: () => scrollToSection('models') },
+    { label: 'FAQ', action: () => scrollToSection('faq') },
+    { label: 'Contact', action: () => scrollToSection('contact') },
+  ];
+
   return (
-    <footer className="bg-black text-white py-12 border-t border-white/10">
+    <footer className="bg-forest-950 text-white py-16 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Logo and Mission */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          {/* Brand */}
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <Image
-                src="/footer-logo.png"
+                src="/brandmark.png"
                 alt="No Bear Box"
-                width={200}
-                height={200}
-                className="text-white"
+                width={120}
+                height={120}
+                className="h-8 w-auto"
               />
-              <span className="text-white font-bold text-lg">No Bear Box</span>
+              <span className="font-bold text-lg">No Bear Box</span>
             </div>
-            <p className="text-white/70 text-sm">
-              Modular, painted steel bear boxes that keep bears out and trash in. Built for properties
-              where bears and houses overlap.
+            <p className="text-white/50 text-sm leading-relaxed">
+              Steel bear-resistant trash enclosures designed for properties in bear country.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <button
-                  onClick={scrollToTop}
-                  className="text-white/70 hover:text-white transition-colors"
-                >
-                  Home
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('how-it-works')}
-                  className="text-white/70 hover:text-white transition-colors"
-                >
-                  How it Works
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('for-who')}
-                  className="text-white/70 hover:text-white transition-colors"
-                >
-                  For Who
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('details')}
-                  className="text-white/70 hover:text-white transition-colors"
-                >
-                  Details
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('faq')}
-                  className="text-white/70 hover:text-white transition-colors"
-                >
-                  FAQ
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="text-white/70 hover:text-white transition-colors"
-                >
-                  Contact
-                </button>
-              </li>
+            <h3 className="font-bold text-sm uppercase tracking-wider text-white/70 mb-4">
+              Quick Links
+            </h3>
+            <ul className="space-y-2.5">
+              {navLinks.map((link) => (
+                <li key={link.label}>
+                  <button
+                    onClick={link.action}
+                    className="text-white/50 hover:text-white transition-colors text-sm"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="font-bold mb-4">Contact</h3>
-            <p className="text-white/70 text-sm mb-4">
-              <a
-                href="mailto:info@nobearbox.com"
-                className="hover:text-white transition-colors"
-              >
-                info@nobearbox.com
-              </a>
-            </p>
-            <p className="text-white/70 text-sm">
-              <span className="block font-medium text-white mb-1">
-                Service Regions:
-              </span>
-              Serving the Poconos, PA and similar bear-country regions.
-            </p>
+            <h3 className="font-bold text-sm uppercase tracking-wider text-white/70 mb-4">
+              Contact
+            </h3>
+            <div className="space-y-3 text-sm">
+              <p>
+                <a
+                  href="mailto:info@nobearbox.com"
+                  className="text-white/50 hover:text-white transition-colors"
+                >
+                  info@nobearbox.com
+                </a>
+              </p>
+              <div>
+                <p className="text-white/70 font-medium mb-1">Location</p>
+                <p className="text-white/50">
+                  Based near Allentown, Pennsylvania.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 text-center text-sm text-white/60">
+        {/* Bottom */}
+        <div className="border-t border-white/10 pt-8 text-center text-xs text-white/40">
           <p>&copy; {new Date().getFullYear()} No Bear Box. All rights reserved.</p>
         </div>
       </div>

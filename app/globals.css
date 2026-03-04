@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply antialiased;
+    @apply antialiased font-sans;
   }
 }
 
@@ -18,122 +18,27 @@
   }
 }
 
-/* Subtle animations for instruction-manual style illustrations */
-@keyframes bounce-subtle {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
+/* Hero gradient overlay */
+.hero-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.45) 40%,
+    rgba(0, 0, 0, 0.55) 70%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
 }
 
-@keyframes arrow-down {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(2px);
-  }
+/* Section divider line */
+.section-divider {
+  @apply w-16 h-1 bg-brand-red mx-auto;
 }
 
-@keyframes pulse-subtle {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
+/* Card hover lift */
+.card-hover {
+  @apply transition-all duration-300;
 }
 
-@keyframes latch-click {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(3px);
-  }
-}
-
-@keyframes checkmark {
-  0% {
-    stroke-dasharray: 0 100;
-  }
-  100% {
-    stroke-dasharray: 100 100;
-  }
-}
-
-@keyframes latch-slide {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-3px);
-  }
-}
-
-@keyframes module-slide {
-  0%, 100% {
-    transform: translateX(0);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translateX(-5px);
-    opacity: 1;
-  }
-}
-
-@keyframes arrow-connect {
-  0%, 100% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes dimension-pulse {
-  0%, 100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-.animate-bounce-subtle {
-  animation: bounce-subtle 3s ease-in-out infinite;
-}
-
-.animate-arrow-down {
-  animation: arrow-down 2s ease-in-out infinite;
-}
-
-.animate-pulse-subtle {
-  animation: pulse-subtle 2s ease-in-out infinite;
-}
-
-.animate-latch-click {
-  animation: latch-click 2.5s ease-in-out infinite;
-}
-
-.animate-checkmark {
-  animation: checkmark 2s ease-in-out infinite;
-}
-
-.animate-latch-slide {
-  animation: latch-slide 2.5s ease-in-out infinite;
-}
-
-.animate-module-slide {
-  animation: module-slide 3s ease-in-out infinite;
-}
-
-.animate-arrow-connect {
-  animation: arrow-connect 2s ease-in-out infinite;
-}
-
-.animate-dimension-pulse {
-  animation: dimension-pulse 2s ease-in-out infinite;
+.card-hover:hover {
+  @apply -translate-y-1 shadow-lg;
 }

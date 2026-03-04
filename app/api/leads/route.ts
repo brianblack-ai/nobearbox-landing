@@ -138,6 +138,40 @@ async function sendEmailNotification(lead: LeadPayload) {
   });
 }
 
+async function sendConfirmationEmail(lead: LeadPayload) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+  const typeLabel = lead.requestType === 'bulk' ? 'bulk pricing request' : 'quote request';
+
+  await resend.emails.send({
+    from: fromEmail,
+    to: lead.email,
+    subject: 'We got your request - No Bear Box',
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <div style="background: #000; padding: 24px; text-align: center;">
+          <h1 style="color: #fff; margin: 0; font-size: 22px;">No Bear Box</h1>
+        </div>
+        <div style="padding: 32px 24px; background: #ffffff;">
+          <p style="font-size: 16px; color: #333; margin: 0 0 16px;">Hi ${lead.name},</p>
+          <p style="font-size: 16px; color: #333; margin: 0 0 16px;">
+            Thank you for your ${typeLabel}. We received your information and will get back to you
+            within 1 business day with fit confirmation and next steps.
+          </p>
+          <p style="font-size: 16px; color: #333; margin: 0 0 16px;">
+            If you have any questions in the meantime, reply to this email or reach out at
+            <a href="mailto:info@nobearbox.com" style="color: #DC2626;">info@nobearbox.com</a>.
+          </p>
+          <p style="font-size: 16px; color: #333; margin: 0;">Talk soon,<br/>The No Bear Box Team</p>
+        </div>
+        <div style="background: #f5f5f4; padding: 16px 24px; text-align: center; font-size: 12px; color: #999;">
+          <p style="margin: 0;">No Bear Box &middot; Bear-resistant trash enclosures &middot; Built in the USA</p>
+        </div>
+      </div>
+    `,
+  });
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body: LeadPayload = await request.json();
@@ -152,16 +186,21 @@ export async function POST(request: NextRequest) {
     const results = await Promise.allSettled([
       appendToGoogleSheet(body),
       sendEmailNotification(body),
+      sendConfirmationEmail(body),
     ]);
 
     const sheetResult = results[0];
     const emailResult = results[1];
+    const confirmationResult = results[2];
 
     if (sheetResult.status === 'rejected') {
       console.error('Google Sheets error:', sheetResult.reason);
     }
     if (emailResult.status === 'rejected') {
       console.error('Email notification error:', emailResult.reason);
+    }
+    if (confirmationResult.status === 'rejected') {
+      console.error('Confirmation email error:', confirmationResult.reason);
     }
 
     if (sheetResult.status === 'rejected' && emailResult.status === 'rejected') {
