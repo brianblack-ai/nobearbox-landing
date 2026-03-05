@@ -18,15 +18,15 @@ const models = [
     name: 'Model 265',
     fits: 'Fits 2 x 65 gallon bins',
     price: '$1,499',
-    popular: true,
-    image: '/NBB265-Angle-Retouch.webp',
+    popular: false,
+    image: '/NBB295.webp',
   },
   {
     name: 'Model 295',
     fits: 'Fits 2 x 95 gallon bins',
     price: '$1,799',
-    popular: false,
-    image: '/NBB295.webp',
+    popular: true,
+    image: '/NBB265-Angle-Retouch.webp',
   },
   {
     name: 'Model 395',
@@ -38,7 +38,7 @@ const models = [
   {
     name: 'Model 495',
     fits: 'Fits 4 x 95 gallon bins',
-    price: '$2,999',
+    price: '$3,299',
     popular: false,
     image: '/NBB495.webp',
   },
@@ -56,7 +56,7 @@ export default function ModelsSection({ onGetQuote }: ModelsSectionProps) {
             Models
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            All models are heavy-duty painted steel with integrated carabiner latch systems.
+            All models are heavy-duty, 12 gauge painted steel with integrated carabiner latch systems.
           </p>
         </div>
 

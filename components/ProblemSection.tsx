@@ -4,7 +4,7 @@ const bullets = [
   'Bears learn fast. One easy meal and they come back every night.',
   'Trash becomes a reliable food source for the whole neighborhood.',
   'Property damage follows. Siding, decks, garage doors, dumpsters.',
-  'Habituated bears get euthanized. Unsecured trash is the root cause.',
+  'Fines from local authorities add up. Unsecured trash is expensive.',
 ];
 
 export default function ProblemSection() {

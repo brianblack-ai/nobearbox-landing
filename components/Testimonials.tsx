@@ -6,7 +6,7 @@ import Image from 'next/image';
 const testimonials = [
   {
     quote:
-      'Had bears ripping through our cans every week for two years. Put the box out in April. Not a single incident since.',
+      'Had bears ripping through our cans every week for two years, put the box out, not a single incident since.',
     name: 'D. Kline',
     role: 'Property Manager',
     location: 'Pocono Pines, PA',
@@ -15,12 +15,12 @@ const testimonials = [
     quote:
       'Trash service had no issues with the latch. They figured it out on the first pickup. Bears have not touched the cans.',
     name: 'M. Pruitt',
-    role: 'HOA Board Member',
+    role: 'Homeowner',
     location: 'Lake Harmony, PA',
   },
   {
     quote:
-      'Ordered the 295 for our rental. Tenants stopped complaining about bears the first week. Looks clean sitting next to the garage.',
+      'Ordered the 295 for our rental, looks clean sitting next to the garage.',
     name: 'J. Reeves',
     role: 'Short-Term Rental Owner',
     location: 'Jim Thorpe, PA',
