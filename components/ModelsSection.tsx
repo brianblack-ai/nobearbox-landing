@@ -66,13 +66,13 @@ export default function ModelsSection({ onGetQuote }: ModelsSectionProps) {
               key={model.name}
               className={`rounded-xl overflow-hidden card-hover flex flex-col ${
                 model.popular
-                  ? 'bg-white ring-2 ring-brand-red shadow-xl scale-[1.03] relative z-10'
+                  ? 'bg-white ring-2 ring-amber-400 shadow-xl scale-[1.03] relative z-10'
                   : 'bg-stone-50 border border-gray-200'
               }`}
             >
               {/* Most Popular badge */}
               {model.popular && (
-                <div className="bg-brand-red text-white text-[11px] font-bold tracking-widest uppercase text-center py-1.5">
+                <div className="bg-amber-400 text-gray-900 text-[11px] font-bold tracking-widest uppercase text-center py-1.5">
                   Most Popular
                 </div>
               )}
