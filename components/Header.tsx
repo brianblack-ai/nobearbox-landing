@@ -75,7 +75,7 @@ export default function Header({ onGetQuote, onRequestBulkPricing }: HeaderProps
               onClick={onGetQuote}
               className="px-5 py-2 bg-brand-red text-white text-sm font-bold rounded hover:bg-red-700 transition-colors"
             >
-              Get a Quote
+              Check Availability
             </button>
           </div>
 
@@ -122,7 +122,7 @@ export default function Header({ onGetQuote, onRequestBulkPricing }: HeaderProps
                 onClick={() => { setMobileMenuOpen(false); onGetQuote(); }}
                 className="block w-full text-left px-4 py-2 bg-brand-red text-white text-sm font-bold rounded hover:bg-red-700 transition-colors"
               >
-                Get a Quote
+                Check Availability
               </button>
             </div>
           </div>

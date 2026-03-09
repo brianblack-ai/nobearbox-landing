@@ -68,7 +68,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
               onClick={onGetQuote}
               className="px-7 py-3.5 bg-brand-red text-white font-bold rounded hover:bg-red-700 transition-colors text-base"
             >
-              Get a Quote
+              Check Availability
             </button>
             <button
               onClick={() => scrollToSection('models')}

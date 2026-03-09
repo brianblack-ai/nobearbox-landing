@@ -155,14 +155,18 @@ async function sendConfirmationEmail(lead: LeadPayload) {
         <div style="padding: 32px 24px; background: #ffffff;">
           <p style="font-size: 16px; color: #333; margin: 0 0 16px;">Hi ${lead.name},</p>
           <p style="font-size: 16px; color: #333; margin: 0 0 16px;">
-            Thank you for your ${typeLabel}. We received your information and will get back to you
-            within 1 business day with fit confirmation and next steps.
+            Thanks for reaching out about No Bear Box.
           </p>
           <p style="font-size: 16px; color: #333; margin: 0 0 16px;">
-            If you have any questions in the meantime, reply to this email or reach out at
-            <a href="mailto:info@nobearbox.com" style="color: #DC2626;">info@nobearbox.com</a>.
+            We are currently scheduling production and delivery for upcoming units. Your request has been received and added to our availability queue.
           </p>
-          <p style="font-size: 16px; color: #333; margin: 0;">Talk soon,<br/>The No Bear Box Team</p>
+          <p style="font-size: 16px; color: #333; margin: 0 0 16px;">
+            A member of our team will review your request and confirm availability, pricing, and delivery options shortly.
+          </p>
+          <p style="font-size: 16px; color: #333; margin: 0 0 16px;">
+            If you have photos of your trash bin area or additional details about your property, feel free to reply to this email.
+          </p>
+          <p style="font-size: 16px; color: #333; margin: 0;">Thanks again for your interest.<br/><br/>Jeff<br/>No Bear Box</p>
         </div>
         <div style="background: #f5f5f4; padding: 16px 24px; text-align: center; font-size: 12px; color: #999;">
           <p style="margin: 0;">No Bear Box &middot; Bear-resistant trash enclosures &middot; Built in the USA</p>

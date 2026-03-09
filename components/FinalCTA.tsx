@@ -14,7 +14,7 @@ export default function FinalCTA({ onGetQuote, onRequestBulkPricing }: FinalCTAP
         </h2>
 
         <p className="text-lg text-white/70 mb-10 max-w-2xl mx-auto">
-          Get a custom quote or request bulk pricing for your properties.
+          Check availability or request bulk pricing for your properties.
           Response within 1 business day.
         </p>
 
@@ -23,7 +23,7 @@ export default function FinalCTA({ onGetQuote, onRequestBulkPricing }: FinalCTAP
             onClick={onGetQuote}
             className="w-full sm:w-auto px-8 py-4 bg-brand-red text-white text-lg font-bold rounded hover:bg-red-700 transition-colors"
           >
-            Get a Quote
+            Check Availability
           </button>
           <button
             onClick={onRequestBulkPricing}

@@ -121,7 +121,7 @@ export default function LeadForm({ defaultType = 'quote', onClose }: LeadFormPro
         </div>
         <h3 className="text-2xl font-bold mb-2">Thanks</h3>
         <p className="text-lg mb-6">
-          We will respond within 1 business day with fit confirmation and next steps.
+          Your request has been received and added to our availability queue. We&apos;ll be in touch shortly.
         </p>
         {onClose && (
           <button
@@ -334,7 +334,7 @@ export default function LeadForm({ defaultType = 'quote', onClose }: LeadFormPro
           disabled={isSubmitting}
           className="px-8 py-3 bg-brand-red text-white font-bold rounded hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {isSubmitting ? 'Submitting...' : `Submit ${defaultType === 'bulk' ? 'Bulk Pricing Request' : 'Quote Request'}`}
+          {isSubmitting ? 'Submitting...' : `${defaultType === 'bulk' ? 'Submit Bulk Pricing Request' : 'Request Availability'}`}
         </button>
       </div>
     </form>

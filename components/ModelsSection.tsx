@@ -97,7 +97,7 @@ export default function ModelsSection({ onGetQuote }: ModelsSectionProps) {
                     onClick={onGetQuote}
                     className="w-full py-2.5 bg-brand-red text-white font-bold rounded hover:bg-red-700 transition-colors text-sm"
                   >
-                    Get a Quote
+                    Check Availability
                   </button>
                 </div>
               </div>

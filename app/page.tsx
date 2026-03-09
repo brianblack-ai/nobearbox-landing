@@ -92,7 +92,7 @@ export default function Home() {
           >
             <div className="sticky top-0 bg-white border-b border-gray-100 p-6 flex items-center justify-between rounded-t-xl">
               <h2 className="text-2xl font-bold text-gray-900">
-                {modalType === 'bulk' ? 'Request Bulk Pricing' : 'Get a Quote'}
+                {modalType === 'bulk' ? 'Request Bulk Pricing' : 'Check Availability'}
               </h2>
               <button
                 onClick={closeModal}
