@@ -254,26 +254,6 @@ export default function LeadForm({ defaultType = 'quote', onClose }: LeadFormPro
           )}
         </div>
 
-        {/* Bin Size */}
-        <div>
-          <label htmlFor="binSize" className="block text-sm font-medium mb-2">
-            What size trash bins does the property use?
-          </label>
-          <select
-            id="binSize"
-            name="binSize"
-            value={formData.binSize}
-            onChange={handleInputChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-brand-red"
-            aria-label="Bin size"
-          >
-            <option value="">Select size</option>
-            <option value="65-gallon">65 gallon bins</option>
-            <option value="95-gallon">95 gallon bins</option>
-            <option value="not-sure">Not sure</option>
-          </select>
-        </div>
-
         {/* Number of Properties */}
         <div>
           <label htmlFor="numberOfProperties" className="block text-sm font-medium mb-2">
@@ -306,6 +286,26 @@ export default function LeadForm({ defaultType = 'quote', onClose }: LeadFormPro
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-brand-red"
             aria-label="Number of Bins"
           />
+        </div>
+
+        {/* Bin Size */}
+        <div>
+          <label htmlFor="binSize" className="block text-sm font-medium mb-2">
+            What size trash bins does the property use?
+          </label>
+          <select
+            id="binSize"
+            name="binSize"
+            value={formData.binSize}
+            onChange={handleInputChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-brand-red"
+            aria-label="Bin size"
+          >
+            <option value="">Select size</option>
+            <option value="65-gallon">65 gallon bins</option>
+            <option value="95-gallon">95 gallon bins</option>
+            <option value="not-sure">Not sure</option>
+          </select>
         </div>
       </div>
 
