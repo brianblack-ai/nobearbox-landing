@@ -40,7 +40,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           }}
         />
         {/* Bottom fade into next section */}
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-black/0 via-black/25 to-white" />
+        <div className="absolute inset-x-0 bottom-0 h-24 md:h-40 bg-gradient-to-b from-black/0 via-black/25 to-white" />
       </div>
 
       {/* Content - left aligned */}
@@ -83,7 +83,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           </div>
 
           {/* Trust bullets */}
-          <div className="flex flex-col sm:flex-row gap-x-6 gap-y-2 text-sm text-white/70">
+          <div className="flex flex-col sm:flex-row gap-x-6 gap-y-2 text-sm text-white/70" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}>
             {[
               'All-steel construction',
               'Secure latch system',
