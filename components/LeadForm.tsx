@@ -277,7 +277,7 @@ export default function LeadForm({ defaultType = 'quote', onClose }: LeadFormPro
         {/* Number of Properties */}
         <div>
           <label htmlFor="numberOfProperties" className="block text-sm font-medium mb-2">
-            Number of Properties/Units
+            How many properties need bear boxes right now?
           </label>
           <input
             type="number"
