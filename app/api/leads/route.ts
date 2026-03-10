@@ -7,7 +7,8 @@ interface LeadPayload {
   email: string;
   phone: string;
   customerType: string;
-  region: string;
+  zipCode: string;
+  binSize: string;
   numberOfProperties: string;
   numberOfBins: string;
   notes: string;
@@ -17,14 +18,16 @@ interface LeadPayload {
 const CUSTOMER_TYPE_LABELS: Record<string, string> = {
   homeowner: 'Homeowner',
   'property-manager': 'Property Manager',
-  investor: 'Investor',
-  'short-term-rental': 'Short-Term Rental',
+  'str-owner': 'STR Owner',
+  realtor: 'Realtor',
+  'service-provider': 'Service Provider',
+  other: 'Other',
 };
 
-const REGION_LABELS: Record<string, string> = {
-  'poconos-pa': 'Poconos PA',
-  'other-pa-mountains': 'Other PA Mountains',
-  'other-bear-country': 'Other Bear Country',
+const BIN_SIZE_LABELS: Record<string, string> = {
+  '65-gallon': '65 Gallon',
+  '95-gallon': '95 Gallon',
+  'not-sure': 'Not Sure',
 };
 
 async function appendToGoogleSheet(lead: LeadPayload) {
@@ -47,12 +50,13 @@ async function appendToGoogleSheet(lead: LeadPayload) {
 
   const row = [
     timestamp,
-    lead.requestType === 'bulk' ? 'Bulk Pricing' : 'Quote',
+    lead.requestType === 'bulk' ? 'Bulk Pricing' : 'Availability',
     lead.name,
     lead.email,
     lead.phone || '',
     CUSTOMER_TYPE_LABELS[lead.customerType] || lead.customerType || '',
-    REGION_LABELS[lead.region] || lead.region || '',
+    lead.zipCode || '',
+    BIN_SIZE_LABELS[lead.binSize] || lead.binSize || '',
     lead.numberOfProperties || '',
     lead.numberOfBins || '',
     lead.notes || '',
@@ -61,7 +65,7 @@ async function appendToGoogleSheet(lead: LeadPayload) {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: sheetId,
-    range: 'Leads!A:K',
+    range: 'Leads!A:L',
     valueInputOption: 'USER_ENTERED',
     requestBody: { values: [row] },
   });
@@ -73,9 +77,9 @@ async function sendEmailNotification(lead: LeadPayload) {
 
   if (!notificationEmail) return;
 
-  const typeLabel = lead.requestType === 'bulk' ? 'Bulk Pricing Request' : 'Quote Request';
+  const typeLabel = lead.requestType === 'bulk' ? 'Bulk Pricing Request' : 'Availability Request';
   const customerLabel = CUSTOMER_TYPE_LABELS[lead.customerType] || lead.customerType || 'Not specified';
-  const regionLabel = REGION_LABELS[lead.region] || lead.region || 'Not specified';
+  const binSizeLabel = BIN_SIZE_LABELS[lead.binSize] || lead.binSize || 'Not specified';
 
   await resend.emails.send({
     from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
@@ -109,8 +113,12 @@ async function sendEmailNotification(lead: LeadPayload) {
               <td style="padding: 8px 12px; border-bottom: 1px solid #e0e0e0;">${customerLabel}</td>
             </tr>
             <tr>
-              <td style="padding: 8px 12px; font-weight: bold; border-bottom: 1px solid #e0e0e0;">Region</td>
-              <td style="padding: 8px 12px; border-bottom: 1px solid #e0e0e0;">${regionLabel}</td>
+              <td style="padding: 8px 12px; font-weight: bold; border-bottom: 1px solid #e0e0e0;">Zip Code</td>
+              <td style="padding: 8px 12px; border-bottom: 1px solid #e0e0e0;">${lead.zipCode || 'Not provided'}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 12px; font-weight: bold; border-bottom: 1px solid #e0e0e0;">Bin Size</td>
+              <td style="padding: 8px 12px; border-bottom: 1px solid #e0e0e0;">${binSizeLabel}</td>
             </tr>
             <tr>
               <td style="padding: 8px 12px; font-weight: bold; border-bottom: 1px solid #e0e0e0;">Properties</td>

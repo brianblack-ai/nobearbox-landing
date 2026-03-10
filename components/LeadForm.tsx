@@ -12,7 +12,8 @@ interface FormData {
   email: string;
   phone: string;
   customerType: string;
-  region: string;
+  zipCode: string;
+  binSize: string;
   numberOfProperties: string;
   numberOfBins: string;
   notes: string;
@@ -24,7 +25,8 @@ export default function LeadForm({ defaultType = 'quote', onClose }: LeadFormPro
     email: '',
     phone: '',
     customerType: '',
-    region: '',
+    zipCode: '',
+    binSize: '',
     numberOfProperties: '',
     numberOfBins: '',
     notes: '',
@@ -63,6 +65,12 @@ export default function LeadForm({ defaultType = 'quote', onClose }: LeadFormPro
       newErrors.email = 'Email is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email';
+    }
+
+    if (!formData.zipCode.trim()) {
+      newErrors.zipCode = 'Zip code is required';
+    } else if (!/^\d{5}(-\d{4})?$/.test(formData.zipCode.trim())) {
+      newErrors.zipCode = 'Please enter a valid zip code';
     }
 
     setErrors(newErrors);
@@ -201,7 +209,7 @@ export default function LeadForm({ defaultType = 'quote', onClose }: LeadFormPro
         {/* Customer Type */}
         <div>
           <label htmlFor="customerType" className="block text-sm font-medium mb-2">
-            Customer Type
+            What best describes you?
           </label>
           <select
             id="customerType"
@@ -209,33 +217,60 @@ export default function LeadForm({ defaultType = 'quote', onClose }: LeadFormPro
             value={formData.customerType}
             onChange={handleInputChange}
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-brand-red"
-            aria-label="Customer Type"
+            aria-label="What best describes you?"
           >
-            <option value="">Select type</option>
-            <option value="homeowner">Homeowner</option>
+            <option value="">Select one</option>
+            <option value="str-owner">STR Owner</option>
             <option value="property-manager">Property Manager</option>
-            <option value="investor">Investor</option>
-            <option value="short-term-rental">Short-Term Rental</option>
+            <option value="realtor">Realtor</option>
+            <option value="service-provider">Service Provider</option>
+            <option value="homeowner">Homeowner</option>
+            <option value="other">Other</option>
           </select>
         </div>
 
-        {/* Region */}
+        {/* Property Zip Code */}
         <div>
-          <label htmlFor="region" className="block text-sm font-medium mb-2">
-            Region
+          <label htmlFor="zipCode" className="block text-sm font-medium mb-2">
+            Property Zip Code <span className="text-brand-red">*</span>
+          </label>
+          <input
+            type="text"
+            id="zipCode"
+            name="zipCode"
+            value={formData.zipCode}
+            onChange={handleInputChange}
+            className={`w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-brand-red ${
+              errors.zipCode ? 'border-brand-red' : 'border-gray-300'
+            }`}
+            aria-label="Property Zip Code"
+            aria-required="true"
+            placeholder="e.g. 18466"
+          />
+          {errors.zipCode ? (
+            <p className="text-brand-red text-sm mt-1">{errors.zipCode}</p>
+          ) : (
+            <p className="text-gray-400 text-xs mt-1">e.g. 18466</p>
+          )}
+        </div>
+
+        {/* Bin Size */}
+        <div>
+          <label htmlFor="binSize" className="block text-sm font-medium mb-2">
+            What size trash bins does the property use?
           </label>
           <select
-            id="region"
-            name="region"
-            value={formData.region}
+            id="binSize"
+            name="binSize"
+            value={formData.binSize}
             onChange={handleInputChange}
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-brand-red"
-            aria-label="Region"
+            aria-label="Bin size"
           >
-            <option value="">Select region</option>
-            <option value="poconos-pa">Poconos PA</option>
-            <option value="other-pa-mountains">Other PA mountains</option>
-            <option value="other-bear-country">Other bear country</option>
+            <option value="">Select size</option>
+            <option value="65-gallon">65 gallon bins</option>
+            <option value="95-gallon">95 gallon bins</option>
+            <option value="not-sure">Not sure</option>
           </select>
         </div>
 
