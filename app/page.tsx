@@ -12,7 +12,7 @@ import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
-import BearCountdown from '@/components/BearCountdown';
+import { StickyCountdownBanner } from '@/components/BearCountdown';
 import LeadForm from '@/components/LeadForm';
 
 export default function Home() {
@@ -79,7 +79,7 @@ export default function Home() {
         />
       </main>
 
-      <BearCountdown />
+      <StickyCountdownBanner />
       <Footer />
 
       {/* Modal */}

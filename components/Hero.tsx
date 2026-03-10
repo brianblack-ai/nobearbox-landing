@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { HeroCountdown } from '@/components/BearCountdown';
 
 interface HeroProps {
   onGetQuote: () => void;
@@ -61,6 +62,9 @@ export default function Hero({ onGetQuote }: HeroProps) {
           <p className="text-lg md:text-xl text-white/85 leading-relaxed mb-8 max-w-md">
             Steel bear-resistant trash enclosures designed for real bear country.
           </p>
+
+          {/* Countdown */}
+          <HeroCountdown />
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 mb-10">
